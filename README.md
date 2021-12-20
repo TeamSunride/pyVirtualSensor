@@ -8,8 +8,8 @@ Developed by [Tom Danvers](https://github.com/TomD53)
 
 Python 3.9 (not tested on other versions)
 
-git clone https://github.com/TeamSunride/pyVirtualSensor
-pip install /path/to/repo
+    git clone https://github.com/TeamSunride/pyVirtualSensor
+    pip install /path/to/repo
 
 ## Explanation
 
