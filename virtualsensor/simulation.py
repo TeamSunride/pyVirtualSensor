@@ -1,5 +1,4 @@
 from time import time
-from tkinter.font import names
 from typing import List, Any
 import matplotlib.pyplot as plt
 from time import sleep
