@@ -76,7 +76,13 @@ class OpenRocketSimulation(Simulation):
             print(f"Warning: {request.column_name} not in OpenRocket data, returning 0")
             return 0
 
-        return df[df["time"] >= time_elapsed].iloc[0][request.column_name]
+        try:
+            return df[df["time"] >= time_elapsed].iloc[0][request.column_name]
+        except IndexError:
+            self.running = False
+            self.finish_time = df["time"].iloc[-1]
+            print(f"Finished simulation: {self.name}")
+            return df["time"].iloc[-1]
 
 
 if __name__ == "__main__":
