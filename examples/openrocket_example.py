@@ -7,14 +7,15 @@ sim = OpenRocketSimulation(
 )
 
 server = VirtualSensorServer(
-    "COM5",
+    "COM3",
     ["BME280"],
     simulation=sim,
-    serial_monitor=False
+    serial_monitor=True,
+    debug=True,
+    baud_rate=2000000
 )
 
 server.start()
-sleep(2)
 
 sim.time_scalar = 100
 sim.start(run_for=500)

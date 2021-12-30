@@ -14,6 +14,7 @@ class CommandName(str, Enum):
     SENSOR_REQUEST = "REQ"
     LOG = "LOG"
     EVENT = "EVENT"
+    LOG_VALUE = "LOGV"
 
 
 def list_available_ports():
@@ -91,6 +92,9 @@ class VirtualSensorServer:
         if command_name == CommandName.EVENT:
             event = SimulationEvent(args[0], self.simulation.get_time_elapsed())
             self.simulation.process_event(event)
+
+        if command_name == CommandName.LOG_VALUE:
+            self.simulation.log_value(args[0], float(args[1]))
 
 
 if __name__ == "__main__":

@@ -213,5 +213,11 @@ class Simulation:
         plt.xlabel("Time (seconds)")
         plt.grid()
 
+    def log_value(self, column_name: str, value: float):
+        if self.running:
+            item = self.sent_data.setdefault(column_name, {})
+            item.setdefault("x", []).append(self.get_time_elapsed())
+            item.setdefault("y", []).append(value)
+
     def __str__(self):
         return f"Simulation(name={self.name}, start_time={self.start_time})"
